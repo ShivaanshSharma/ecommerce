@@ -1,5 +1,5 @@
 
-import logo from '../assets/SS.png';
+import logo from '../assets/newlogo-bg.png';
 import { CiShoppingCart } from "react-icons/ci";
 
 
