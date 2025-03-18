@@ -4,6 +4,8 @@ import HomePage from "./components/HomePage"
 import ProductsPage from "./components/ProductsPage"
 import MainLayout from "./components/MainLayout"
 import ErrorPage from "./components/ErrorPage"
+import { Provider } from "react-redux"
+import { store } from "./store/store"
 
 function App() {
 
@@ -17,9 +19,9 @@ function App() {
 )
 
   return (
-    <>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </>
+    </Provider>
   )
 }
 
