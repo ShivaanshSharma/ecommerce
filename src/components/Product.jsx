@@ -1,4 +1,5 @@
 import { CiStar } from "react-icons/ci";
+import { CiShoppingCart } from "react-icons/ci";
 
 export default function Product ({productData}) {
     return (
