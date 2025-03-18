@@ -16,7 +16,7 @@ export default function ProductsPage() {
     }, []);
 
     return (
-        <div className="w-8/12 mx-auto my-12 grid grid-flow-col grid-rows-9 gap-3">
+        <div className="w-7/10 mx-auto my-12 grid grid-flow-row grid-cols-3 gap-6">
             {products?.map((product) => <Product productData={product} />)}
         </div>
     )
