@@ -6,6 +6,7 @@ import MainLayout from "./components/MainLayout"
 import ErrorPage from "./components/ErrorPage"
 import { Provider } from "react-redux"
 import { store } from "./store/store"
+import Cart from "./components/Cart"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     { path:'/', element: <MainLayout />, children: [
       { path: '/', element: <HomePage /> },
       { path: '/products', element: <ProductsPage /> },
+      { path: '/cart', element: <Cart />}
     ],
     errorElement: <ErrorPage /> }
   ],
