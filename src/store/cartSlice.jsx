@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     cart: [],
+    total: 0,
 }
 
 const cartSlice = createSlice({
@@ -20,11 +21,15 @@ const cartSlice = createSlice({
                 let newItem = action.payload;
                 state.cart.push(newItem);
             }
+            let newTotal = state.total + action.payload.price;
+            state.total = newTotal;
         },
         increment: (state, action) => {
             const found = state.cart.find((item => item.id === action.payload));
             const index = state.cart.indexOf(found);
             state.cart[index].count++;
+            let newTotal = state.total + found.price;
+            state.total = newTotal;
         },
         decrement: (state, action) => {
             const found = state.cart.find((item => item.id === action.payload));

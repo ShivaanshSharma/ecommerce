@@ -30,7 +30,7 @@ export default function Product ({productData}) {
                 {productData.title}
             </span>
             <span>
-                {productData.price}
+                $ {productData.price}
             </span>
             <span>
             ⭐{productData.rating.rate} ({productData.rating.count})

@@ -5,6 +5,7 @@ import { increment, decrement } from "../store/cartSlice";
 export default function Cart () {
 
     const cart = useSelector(state => state.cart.cart);
+    const total = useSelector(state => state.cart.total)
     const dispatch = useDispatch();
 
     const incrementHandler = (cartItemId) => {
@@ -39,11 +40,17 @@ export default function Cart () {
                     </span>
                 </span>
             </div>)}
+            <div className="text-2xl">
+                Total: $ {total.toFixed(2)}
+            </div>
+            <div>
+                <button className="duration-150 py-3 px-12 bg-green-400 rounded-xl text-white border-1 cursor-pointer hover:border-green-400 hover:bg-white hover:text-green-400">Checkout</button>
+            </div>
         </>
     }
 
     return (
-        <div className="p-6 w-6/10 text-center shadow-xl flex flex-col gap-3 mx-auto mt-9 rounded-2xl border-1 border-gray-400">
+        <div className="p-6 my-12 w-6/10 text-center shadow-xl flex flex-col gap-3 mx-auto mt-9 rounded-2xl border-1 border-gray-400">
             {content}
         </div>
     )
