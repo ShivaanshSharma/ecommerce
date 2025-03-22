@@ -17,13 +17,17 @@ export default function Cart () {
             
             <span className="text-3xl p-6">Cart 🛒</span>
 
-            {cart.map((item) => <div className="rounded-xl flex flex-row text-center justify-between items-center gap-3 border-1 p-2">
+            {cart.map((item, i) => <div key={i} className="rounded-xl flex flex-row text-center justify-between items-center gap-3 border-1 p-2">
                 <img src={item.image} className="h-48" />
                 <span>{item.title}</span>
                 <span>{item.price}</span>
-                <span>+</span>
-                <span>1</span>
-                <span>-</span>
+                <span className="flex flex-col">
+                    <span>{item.count}</span>
+                    <span className="flex flex-row justify-between gap-6">
+                        <span>+</span>
+                        <span>-</span>
+                    </span>
+                </span>
             </div>)}
         </>
     }

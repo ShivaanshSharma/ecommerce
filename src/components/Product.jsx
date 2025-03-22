@@ -7,12 +7,15 @@ export default function Product ({productData}) {
 
     const dispatch = useDispatch();
 
+    let count = 1;
+
     const cartAddHandler = () => {
         const newCartProduct = {
-            id: Math.random(),
+            id: productData.id,
             title: productData.title,
             price: productData.price,
-            image: productData.image
+            image: productData.image,
+            count: 1,
         }
 
         dispatch(add(newCartProduct));

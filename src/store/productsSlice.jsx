@@ -10,11 +10,10 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         initialLoading: (state, action) => {
-            state.products = action.payload;
+            const updatedIds = action.payload;
+            updatedIds.map((item) => item.id = Math.floor(Math.random() * 1000000));
+            state.products = updatedIds;
         },
-        sayHello: (state) => {
-            console.log("hello!");
-        }
     }
 })
 
