@@ -1,9 +1,19 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom";
+import { increment, decrement } from "../store/cartSlice";
 
 export default function Cart () {
 
     const cart = useSelector(state => state.cart.cart);
+    const dispatch = useDispatch();
+
+    const incrementHandler = (cartItemId) => {
+        dispatch(increment(cartItemId));
+    }
+
+    const decrementHandler = (cartItemId) => {
+        dispatch(decrement(cartItemId));
+    }
 
     let content;
 
@@ -24,8 +34,8 @@ export default function Cart () {
                 <span className="flex flex-col">
                     <span>{item.count}</span>
                     <span className="flex flex-row justify-between gap-6">
-                        <span>+</span>
-                        <span>-</span>
+                        <button onClick={() => incrementHandler(item.id)} className="bg-green-600 p-2 cursor-pointer">+</button>
+                        <button onClick={() => decrementHandler(item.id)} className="bg-red-600 p-2 cursor-pointer">-</button>
                     </span>
                 </span>
             </div>)}

@@ -10,9 +10,11 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         initialLoading: (state, action) => {
-            const updatedIds = action.payload;
-            updatedIds.map((item) => item.id = Math.floor(Math.random() * 1000000));
-            state.products = updatedIds;
+            if (state.products.length === 0) {
+                const updatedIds = action.payload;
+                updatedIds.map((item) => item.id = Math.floor(Math.random() * 1000000));
+                state.products = updatedIds;
+            }
         },
     }
 })
