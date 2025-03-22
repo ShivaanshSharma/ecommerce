@@ -39,6 +39,8 @@ const cartSlice = createSlice({
                 const filteredCart = state.cart.filter((item) => item.id !== action.payload);
                 state.cart = filteredCart;
             }
+            let newTotal = state.total - found.price;
+            state.total = newTotal;
         }
     }
 })
