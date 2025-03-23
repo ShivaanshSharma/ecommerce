@@ -24,12 +24,12 @@ export default function ProductDetail () {
         }
 
     return (
-        <div className=" w-fit max-w-8/10 mx-auto border-1 border-gray-400 shadow-xl rounded p-3 my-6 flex flex-row gap-3">
+        <div className="flex-col w-fit max-w-8/10 mx-auto border-1 border-gray-400 shadow-xl rounded p-3 my-6  gap-3">
             <span className="flex-2/6 flex justify-center">
-                <img className="w-full" src={state.image} />
+                <img className="h-64" src={state.image} />
             </span>
             <span className="flex flex-col gap-6 text-center justify-center flex-4/6">
-                <span className="font-bold">{title}</span>
+                <span className="font-bold mt-3">{title}</span>
                 <span>{state.desc}</span>
                 <span className="font-bold text-2xl">$ {price}</span>
 
