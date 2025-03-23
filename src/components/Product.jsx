@@ -20,7 +20,7 @@ export default function Product ({productData}) {
             image: productData.image,
             count: 1,
         }
-
+// && copy dist\\index.html dist\\404.html
         dispatch(add(newCartProduct));
     }
 
