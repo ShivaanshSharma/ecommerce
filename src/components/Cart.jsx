@@ -16,6 +16,8 @@ export default function Cart () {
         dispatch(decrement(cartItemId));
     }
 
+    console.log(total);
+
     let content;
 
     if(cart.length === 0) {
@@ -26,21 +28,21 @@ export default function Cart () {
     } else {
         content = <>
             
-            <span className="text-3xl p-6">Cart 🛒</span>
+            <span className="text-3xl p-3 font-bold">Cart 🛒</span>
 
-            {cart.map((item, i) => <div key={i} className="rounded-xl flex flex-row text-center justify-between items-center gap-3 border-1 p-2">
+            {cart.map((item, i) => <div key={i} className="sm:flex-row rounded-xl flex flex-col text-center justify-between items-center gap-3 border-1 p-2">
                 <img src={item.image} className="h-48" />
                 <span>{item.title}</span>
-                <span>{item.price}</span>
-                <span className="flex flex-col">
-                    <span>{item.count}</span>
+                <span className="font-bold text-xl">$ {item.price}</span>
+                <span className="flex flex-col gap-3">
+                    <span className="font-bold text-xl">{item.count}</span>
                     <span className="flex flex-row justify-between gap-6">
-                        <button onClick={() => incrementHandler(item.id)} className="bg-green-600 p-2 cursor-pointer">+</button>
-                        <button onClick={() => decrementHandler(item.id)} className="bg-red-600 p-2 cursor-pointer">-</button>
+                        <button onClick={() => incrementHandler(item.id)} className="duration-150 rounded hover:bg-white border-1 hover:border-green-600 hover:text-green-600 text-white bg-green-600 cursor-pointer px-3 py-2">+</button>
+                        <button onClick={() => decrementHandler(item.id)} className="duration-150 rounded hover:bg-white border-1 hover:border-red-600 hover:text-red-600 text-white bg-red-600 cursor-pointer px-3 py-2">-</button>
                     </span>
                 </span>
             </div>)}
-            <div className="text-2xl">
+            <div className="text-3xl font-bold">
                 Total: $ {total.toFixed(2)}
             </div>
             <div>
@@ -50,7 +52,7 @@ export default function Cart () {
     }
 
     return (
-        <div className="p-6 my-12 w-6/10 text-center shadow-xl flex flex-col gap-3 mx-auto mt-9 rounded-2xl border-1 border-gray-400">
+        <div className="p-6 my-12 w-fit min-w-4/10 text-center shadow-xl flex flex-col gap-6 mx-auto mt-9 rounded-2xl border-1 border-gray-400">
             {content}
         </div>
     )

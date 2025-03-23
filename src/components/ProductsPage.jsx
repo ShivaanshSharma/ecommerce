@@ -18,7 +18,7 @@ export default function ProductsPage() {
     }, []);
 
     return (
-        <div className="w-7/10 mx-auto my-12 grid grid-flow-row grid-cols-3 gap-6">
+        <div className="w-7/10 mx-auto my-12 grid grid-flow-row  gap-6 lg:grid-cols-3 sm:grid-cols-1">
             {products?.map((product, index) => <Product key={index} productData={product} />)}
         </div>
     )
