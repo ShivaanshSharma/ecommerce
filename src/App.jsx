@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createHashRouter, RouterProvider } from "react-router-dom"
 import HomePage from "./components/HomePage"
 import ProductsPage from "./components/ProductsPage"
 import MainLayout from "./components/MainLayout"
@@ -11,7 +11,7 @@ import ProductDetail from "./components/ProductDetail"
 
 function App() {
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     { path:'/ecommerce', element: <MainLayout />, children: [
       { path: '/ecommerce', element: <HomePage /> },
       { path: '/ecommerce/products', element: <ProductsPage /> },
