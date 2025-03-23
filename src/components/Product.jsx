@@ -27,7 +27,7 @@ export default function Product ({productData}) {
     const productClickHandler = () => {
         navigate(`/ecommerce/products/${productData.id}/${productData.title}/${productData.price}`, { state:  { image: `${productData.image}`, desc: `${productData.description}` } });
     }
-
+ds
     return (
         <div onClick={productClickHandler} className="cursor-pointer duration-150 border-1 rounded-2xl p-2 text-center flex flex-col justify-between gap-2 hover:bg-gray-200">
             <span>
