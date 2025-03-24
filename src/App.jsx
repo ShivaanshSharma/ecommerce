@@ -12,11 +12,11 @@ import ProductDetail from "./components/ProductDetail"
 function App() {
 
   const router = createHashRouter([
-    { path:'/ecommerce', element: <MainLayout />, children: [
-      { path: '/ecommerce', element: <HomePage /> },
-      { path: '/ecommerce/products', element: <ProductsPage /> },
-      { path: '/ecommerce/products/:productId/:title/:price', element: <ProductDetail />},
-      { path: '/ecommerce/cart', element: <Cart />}
+    { path:'/', element: <MainLayout />, children: [
+      { path: '/', element: <HomePage /> },
+      { path: '/products', element: <ProductsPage /> },
+      { path: '/products/:productId/:title/:price', element: <ProductDetail />},
+      { path: '/cart', element: <Cart />}
     ],
     errorElement: <ErrorPage /> }
   ],
