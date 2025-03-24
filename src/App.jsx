@@ -12,8 +12,8 @@ import ProductDetail from "./components/ProductDetail"
 function App() {
 
   const router = createHashRouter([
-    { path:'/ecommerce', element: <MainLayout />, children: [
-      { path: '/ecommerce', element: <HomePage /> },
+    { path:'/', element: <MainLayout />, children: [
+      { path: '/', element: <HomePage /> },
       { path: '/ecommerce/products', element: <ProductsPage /> },
       { path: '/ecommerce/products/:productId/:title/:price', element: <ProductDetail />},
       { path: '/ecommerce/cart', element: <Cart />}
