@@ -1,3 +1,7 @@
+
+
+
+
 @import "tailwindcss";
 
 .image {
@@ -9,3 +13,6 @@
   height: 100vh;
 }
 
+.title-font {
+  font-family: 'Boldonse';
+}
