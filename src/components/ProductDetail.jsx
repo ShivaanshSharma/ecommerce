@@ -27,7 +27,7 @@ export default function ProductDetail () {
         }
 
     return (
-        <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row w-fit max-w-8/10 mx-auto border-gray-400 my-6  gap-3">
+        <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row w-fit max-w-8/10 mx-auto shadow my-6  gap-3">
             <span className="flex-10/12 border-1 border-gray-400 p-3 rounded-xl h-fit">
                 <span className="flex-2/6 flex justify-center">
                     <img className="h-64" src={state.image} />
@@ -43,8 +43,9 @@ export default function ProductDetail () {
                     </span>
                 </span>
             </span>
-            <span className="flex-4/12 text-center flex flex-col gap-3 border-1 border-gray-400 p-3 rounded-xl h-fit">
-                <span className="text-xl explore">Explore more products</span>
+            <span className="flex-4/12 text-center flex flex-col gap-3 border-1 border-gray-400 p-3 shadow rounded-xl h-fit">
+                
+                <span className="text-2xl font-bold text-red-900 explore">Explore more<br></br>products</span>
                 {products?.map((product, index) => <Product key={index} productData={product} />)}
             </span>
         </div>

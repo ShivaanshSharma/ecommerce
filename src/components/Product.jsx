@@ -3,15 +3,24 @@ import { CiShoppingCart } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Product ({productData}) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const [response, setResponse] = useState(false);
+
     let count = 1;
 
+    const addedToCart = () => {
+        setResponse(true);
+        setTimeout(() => {setResponse(false)}, 1500)
+    }
+
     const cartAddHandler = (event) => {
+        addedToCart();
         event.stopPropagation();
         const newCartProduct = {
             id: productData.id,
@@ -20,7 +29,6 @@ export default function Product ({productData}) {
             image: productData.image,
             count: 1,
         }
-// && copy dist\\index.html dist\\404.html
         dispatch(add(newCartProduct));
     }
 
@@ -45,7 +53,7 @@ export default function Product ({productData}) {
             </span>
             <span className="flex flex-col gap-1 text-white">
                 <button className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
-                <button onClick={cartAddHandler} className="cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300">Add to Cart</button>
+                <button onClick={cartAddHandler} className="cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300">{response ? 'Added!' : 'Add to Cart'}</button>
             </span>
         </div>
     )
