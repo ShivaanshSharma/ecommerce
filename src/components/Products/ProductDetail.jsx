@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom"
-import { add } from "../store/cartSlice";
+import { add } from "../../store/Slices/cartSlice"
 import Product from "./Product";
 
 export default function ProductDetail () {

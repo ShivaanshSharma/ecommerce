@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Product from "./Product";
+import Product from "../Products/Product";
 import { useDispatch, useSelector } from "react-redux";
-import { initialLoading, sayHello } from "../store/productsSlice";
+import { initialLoading, sayHello } from "../../store/Slices/productsSlice";
 
 export default function ProductsPage() {
 

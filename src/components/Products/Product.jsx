@@ -1,7 +1,7 @@
 import { CiStar } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
-import { add } from "../store/cartSlice";
+import { add } from "../../store/Slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 

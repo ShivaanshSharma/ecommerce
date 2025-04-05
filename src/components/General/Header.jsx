@@ -1,5 +1,5 @@
 
-import logo from '../assets/newlogo-bg.png';
+import logo from '../../assets/newlogo-bg.png';
 import { CiShoppingCart } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { CiShop } from "react-icons/ci";

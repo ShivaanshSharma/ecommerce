@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom";
-import { increment, decrement } from "../store/cartSlice";
+import { increment, decrement } from "../store/Slices/cartSlice";
 
 export default function Cart () {
 

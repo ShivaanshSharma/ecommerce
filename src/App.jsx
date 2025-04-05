@@ -1,13 +1,13 @@
 
 import { createHashRouter, RouterProvider } from "react-router-dom"
-import HomePage from "./components/HomePage"
-import ProductsPage from "./components/ProductsPage"
-import MainLayout from "./components/MainLayout"
-import ErrorPage from "./components/ErrorPage"
+import HomePage from "./components/Pages/HomePage"
+import ProductsPage from "./components/Pages/ProductsPage"
+import MainLayout from "./components/General/MainLayout"
+import ErrorPage from "./components/General/ErrorPage"
 import { Provider } from "react-redux"
 import { store } from "./store/store"
 import Cart from "./components/Cart"
-import ProductDetail from "./components/ProductDetail"
+import ProductDetail from "./components/Products/ProductDetail"
 
 function App() {
 
