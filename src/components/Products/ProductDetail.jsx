@@ -45,7 +45,7 @@ export default function ProductDetail () {
             </span>
             <span className="flex-4/12 text-center flex flex-col gap-3 border-1 border-gray-400 p-3 shadow rounded-xl h-fit">
                 
-                <span className="text-2xl font-bold text-red-900 explore">Explore more<br></br>products</span>
+                <span className="text-3xl font-bold my-3 explore">Explore more<br></br>products</span>
                 {products?.map((product, index) => <Product key={index} productData={product} />)}
             </span>
         </div>
