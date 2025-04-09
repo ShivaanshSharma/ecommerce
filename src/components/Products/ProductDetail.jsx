@@ -2,8 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom"
 import { add } from "../../store/Slices/cartSlice"
 import Product from "./Product";
+import { useState } from "react";
 
 export default function ProductDetail () {
+
+    const [response, setResponse] = useState(false);
 
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.products);
@@ -12,9 +15,17 @@ export default function ProductDetail () {
     const {productId, title, price } = useParams();
     const {state} = useLocation();
 
+    const addToCartHandler = () => {
+        setResponse(true);
+        setTimeout(() => setResponse(false), 1500)
+    }
+
     let count = 1;
 
         const cartAddHandler = (event) => {
+
+            addToCartHandler();
+
             event.stopPropagation();
             const newCartProduct = {
                 id: Number(productId),
@@ -39,7 +50,7 @@ export default function ProductDetail () {
 
                     <span className="flex flex-col gap-1 text-white">
                         <button className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
-                        <button onClick={cartAddHandler} className="cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300">Add to Cart</button>
+                        <button onClick={cartAddHandler} className="cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300">{response ? 'Added!' : 'Add to cart'}</button>
                     </span>
                 </span>
             </span>

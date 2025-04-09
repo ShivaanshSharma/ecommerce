@@ -1,5 +1,4 @@
-import { CiStar } from "react-icons/ci";
-import { CiShoppingCart } from "react-icons/ci";
+
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../store/Slices/cartSlice";
 import { useNavigate } from "react-router-dom";
@@ -10,26 +9,35 @@ export default function Product ({productData}) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [response, setResponse] = useState(false);
+    const cart = useSelector(state => state.cart.cart);
+
+    const [response, setResponse] = useState('Add to cart');
 
     let count = 1;
 
     const addedToCart = () => {
-        setResponse(true);
-        setTimeout(() => {setResponse(false)}, 1500)
+        setResponse('Added!');
+        setTimeout(() => {setResponse('Add to cart')}, 1500);
     }
 
     const cartAddHandler = (event) => {
-        addedToCart();
         event.stopPropagation();
-        const newCartProduct = {
-            id: productData.id,
-            title: productData.title,
-            price: productData.price,
-            image: productData.image,
-            count: 1,
+        
+        const found = cart.find(item => item.id === productData.id);
+        if (found) {
+            setResponse('Item already in cart!');
+            setTimeout(() => setResponse('Add to cart'), 1500);
+        } else {
+            addedToCart();
+            const newCartProduct = {
+                id: productData.id,
+                title: productData.title,
+                price: productData.price,
+                image: productData.image,
+                count: 1,
+            }
+            dispatch(add(newCartProduct));
         }
-        dispatch(add(newCartProduct));
     }
 
     const productClickHandler = () => {
@@ -53,7 +61,7 @@ export default function Product ({productData}) {
             </span>
             <span className="flex flex-col gap-1 text-white">
                 <button className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
-                <button onClick={cartAddHandler} className="cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300">{response ? 'Added!' : 'Add to Cart'}</button>
+                <button onClick={cartAddHandler} className={`${response === 'Add to cart' ? null : 'font-bold'} cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300`}>{response}</button>
             </span>
         </div>
     )

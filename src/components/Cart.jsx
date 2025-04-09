@@ -22,7 +22,7 @@ export default function Cart () {
 
     if(cart.length === 0) {
         content = <>
-            <span className="text-3xl mb-3">Cart is Empty!</span>
+            <span className="text-3xl">Cart is Empty!</span>
             <Link className="mx-auto duration-150 bg-red-900 w-fit text-white p-3 rounded-xl hover:border-1 hover:border-red-900 hover:bg-white hover:text-red-900" to="/products">Start Shopping Now!</Link>
         </>
     } else {
