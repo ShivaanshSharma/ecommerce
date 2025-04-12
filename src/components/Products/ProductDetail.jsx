@@ -6,35 +6,44 @@ import { useState } from "react";
 
 export default function ProductDetail () {
 
-    const [response, setResponse] = useState(false);
+    const [response, setResponse] = useState("Add to cart");
 
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.products);
+    const cart = useSelector(state => state.cart.cart);
+
     console.log(products);
 
     const {productId, title, price } = useParams();
     const {state} = useLocation();
 
     const addToCartHandler = () => {
-        setResponse(true);
-        setTimeout(() => setResponse(false), 1500)
+        setResponse("Added!");
+        setTimeout(() => setResponse("Add to cart"), 1500)
     }
 
     let count = 1;
 
         const cartAddHandler = (event) => {
-
-            addToCartHandler();
-
             event.stopPropagation();
-            const newCartProduct = {
-                id: Number(productId),
-                title: title,
-                price: Number(price),
-                image: state.image,
-                count: 1,
+
+            const found = cart.find(item => item.id === Number(productId));
+            
+            if (found) {
+                setResponse("Item already in cart!");
+                setTimeout(() => setResponse("Add to cart"), 1500);
+            } else {
+                addToCartHandler();
+    
+                const newCartProduct = {
+                    id: Number(productId),
+                    title: title,
+                    price: Number(price),
+                    image: state.image,
+                    count: 1,
+                }
+                dispatch(add(newCartProduct));
             }
-            dispatch(add(newCartProduct));
         }
 
     return (
@@ -50,7 +59,7 @@ export default function ProductDetail () {
 
                     <span className="flex flex-col gap-1 text-white">
                         <button className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
-                        <button onClick={cartAddHandler} className="cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300">{response ? 'Added!' : 'Add to cart'}</button>
+                        <button onClick={cartAddHandler} className={`${response !== 'Add to cart' ? 'font-bold' : null} cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300`}>{response}</button>
                     </span>
                 </span>
             </span>
