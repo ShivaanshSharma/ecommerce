@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { increment, decrement } from "../store/Slices/cartSlice";
 
 export default function Cart () {
+
+    const navigate = useNavigate();
 
     const cart = useSelector(state => state.cart.cart);
     const total = useSelector(state => state.cart.total)
@@ -16,7 +18,9 @@ export default function Cart () {
         dispatch(decrement(cartItemId));
     }
 
-    console.log(total);
+    const checkoutHandler = () => {
+        navigate(`/payment/${total}`);
+    }
 
     let content;
 
@@ -46,7 +50,7 @@ export default function Cart () {
                 Total: $ {total.toFixed(2)}
             </div>
             <div>
-                <button className="duration-150 py-3 px-12 bg-green-400 rounded-xl text-white border-1 cursor-pointer hover:border-green-400 hover:bg-white hover:text-green-400">Checkout</button>
+                <button onClick={checkoutHandler} className="duration-150 py-3 px-12 bg-green-400 rounded-xl text-white border-1 cursor-pointer hover:border-green-400 hover:bg-white hover:text-green-400">Checkout</button>
             </div>
         </>
     }

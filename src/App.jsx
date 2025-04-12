@@ -8,6 +8,7 @@ import { Provider } from "react-redux"
 import { store } from "./store/store"
 import Cart from "./components/Cart"
 import ProductDetail from "./components/Products/ProductDetail"
+import PaymentPage from "./components/Pages/PaymentPage"
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
       { path: '/', element: <HomePage /> },
       { path: '/products', element: <ProductsPage /> },
       { path: '/products/:productId/:title/:price', element: <ProductDetail />},
-      { path: '/cart', element: <Cart />}
+      { path: '/cart', element: <Cart />},
+      { path: '/payment/:total', element: <PaymentPage /> }
     ],
     errorElement: <ErrorPage /> }
   ],
