@@ -9,6 +9,7 @@ import { store } from "./store/store"
 import Cart from "./components/Cart"
 import ProductDetail from "./components/Products/ProductDetail"
 import PaymentPage from "./components/Pages/PaymentPage"
+import SinglePaymentPage from "./components/Pages/SinglePaymentPage"
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
       { path: '/products', element: <ProductsPage /> },
       { path: '/products/:productId/:title/:price', element: <ProductDetail />},
       { path: '/cart', element: <Cart />},
-      { path: '/payment/:total', element: <PaymentPage /> }
+      { path: '/payment/:total', element: <PaymentPage /> },
+      { path: '/payment/:productId/:price', element: <SinglePaymentPage /> },
     ],
     errorElement: <ErrorPage /> }
   ],

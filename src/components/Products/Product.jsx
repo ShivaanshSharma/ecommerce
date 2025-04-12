@@ -40,6 +40,12 @@ export default function Product ({productData}) {
         }
     }
 
+    const buyHandler = (event) => {
+        event.stopPropagation();
+ 
+        navigate(`/payment/${productData.id}/${productData.price}`, { state: { image: productData.image } })
+    }
+
     const productClickHandler = () => {
         navigate(`/products/${productData.id}/${productData.title}/${productData.price}`, { state:  { image: `${productData.image}`, desc: `${productData.description}` } });
     }
@@ -60,7 +66,7 @@ export default function Product ({productData}) {
                 $ {productData.price}
             </span>
             <span className="flex flex-col gap-1 text-white">
-                <button className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
+                <button onClick={buyHandler} className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
                 <button onClick={cartAddHandler} className={`${response === 'Add to cart' ? null : 'font-bold'} cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300`}>{response}</button>
             </span>
         </div>
