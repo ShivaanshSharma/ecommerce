@@ -47,7 +47,7 @@ export default function Product ({productData}) {
     }
 
     const productClickHandler = () => {
-        navigate(`/products/${productData.id}/${productData.title}/${productData.price}`, { state:  { image: `${productData.image}`, desc: `${productData.description}` } });
+        navigate(`/products/${productData.id}/${productData.price}`, { state:  { image: `${productData.image}`, desc: `${productData.description}`, title: `${productData.title}` } });
     }
 
     return (

@@ -17,7 +17,7 @@ function App() {
     { path:'/', element: <MainLayout />, children: [
       { path: '/', element: <HomePage /> },
       { path: '/products', element: <ProductsPage /> },
-      { path: '/products/:productId/:title/:price', element: <ProductDetail />},
+      { path: '/products/:productId/:price', element: <ProductDetail />},
       { path: '/cart', element: <Cart />},
       { path: '/payment/:total', element: <PaymentPage /> },
       { path: '/payment/:productId/:price', element: <SinglePaymentPage /> },

@@ -15,7 +15,7 @@ export default function ProductDetail () {
 
     console.log(products);
 
-    const {productId, title, price } = useParams();
+    const {productId, price } = useParams();
     const {state} = useLocation();
 
     const addToCartHandler = () => {
@@ -60,7 +60,7 @@ export default function ProductDetail () {
                     <img className="h-64" src={state.image} />
                 </span>
                 <span className="flex flex-col gap-6 text-center justify-center flex-4/6">
-                    <span className="font-bold mt-3">{title}</span>
+                    <span className="font-bold mt-3 text-xl">{state.title}</span>
                     <span>{state.desc}</span>
                     <span className="font-bold text-2xl">$ {price}</span>
 
