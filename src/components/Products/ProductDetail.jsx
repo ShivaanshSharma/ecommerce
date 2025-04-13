@@ -38,7 +38,7 @@ export default function ProductDetail () {
     
                 const newCartProduct = {
                     id: Number(productId),
-                    title: title,
+                    title: state.title,
                     price: Number(price),
                     image: state.image,
                     count: 1,
