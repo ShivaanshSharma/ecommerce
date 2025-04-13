@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { add } from "../../store/Slices/cartSlice"
 import Product from "./Product";
 import { useState } from "react";
@@ -9,6 +9,7 @@ export default function ProductDetail () {
     const [response, setResponse] = useState("Add to cart");
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const products = useSelector(state => state.products.products);
     const cart = useSelector(state => state.cart.cart);
 
@@ -46,6 +47,12 @@ export default function ProductDetail () {
             }
         }
 
+        const buyHandler = (event) => {
+            event.stopPropagation();
+     
+            navigate(`/payment/${productId}/${price}`, { state: { image: state.image } })
+        }
+
     return (
         <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row w-fit max-w-8/10 mx-auto shadow my-6  gap-3">
             <span className="flex-10/12 border-1 border-gray-400 p-3 rounded-xl h-fit">
@@ -58,7 +65,7 @@ export default function ProductDetail () {
                     <span className="font-bold text-2xl">$ {price}</span>
 
                     <span className="flex flex-col gap-1 text-white">
-                        <button className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
+                        <button onClick={buyHandler} className="cursor-pointer duration-150 bg-orange-300 rounded py-2 hover:bg-orange-200">Buy Now</button>
                         <button onClick={cartAddHandler} className={`${response !== 'Add to cart' ? 'font-bold' : null} cursor-pointer duration-150 bg-orange-400 rounded py-2 hover:bg-orange-300`}>{response}</button>
                     </span>
                 </span>
