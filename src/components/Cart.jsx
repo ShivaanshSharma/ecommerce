@@ -34,7 +34,7 @@ export default function Cart () {
             
             <span className="text-3xl p-3 font-bold">Cart 🛒</span>
 
-            {cart.map((item, i) => <div key={i} className="sm:flex-row rounded-xl flex flex-col text-center justify-between items-center gap-6 border-1 p-2">
+            {cart.map((item, i) => <div key={i} className="sm:flex-row rounded-xl shadow-[5px_5px_20px] shadow-gray-300 shadow-gray-200 flex flex-col text-center justify-between items-center gap-6 p-2">
                 <img src={item.image} className="h-48" />
                 <span>{item.title}</span>
                 <span className="font-bold text-xl">$ {item.price}</span>
@@ -56,7 +56,7 @@ export default function Cart () {
     }
 
     return (
-        <div className="p-6 my-12 w-fit min-w-4/10 text-center shadow-xl flex flex-col gap-6 mx-auto mt-9 rounded-2xl border-1 border-gray-400">
+        <div className="p-6 my-12 w-fit min-w-4/10 text-center border-1 flex flex-col gap-6 mx-auto mt-9  border-gray-300">
             {content}
         </div>
     )

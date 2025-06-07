@@ -51,7 +51,7 @@ export default function Product ({productData}) {
     }
 
     return (
-        <div onClick={productClickHandler} className="cursor-pointer duration-150 border-1 rounded-2xl p-2 text-center flex flex-col justify-between gap-2 hover:bg-gray-200">
+        <div onClick={productClickHandler} className="cursor-pointer duration-150 rounded-xl shadow-xl shadow-gray-300 p-2 text-center flex flex-col justify-between gap-2 hover:bg-gray-200">
             <span>
                 <img src={productData.image} className="h-48 mx-auto"  />
             </span>

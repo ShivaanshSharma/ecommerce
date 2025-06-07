@@ -35,7 +35,7 @@ export default function ProductsPage() {
     return (
         <>
         <div className="text-left w-7/10 mx-auto my-6">
-            <select onChange={categoryChangeHandler} name="category" id="category" className="border-1 rounded p-2">
+            <select onChange={categoryChangeHandler} name="category" id="category" className="border-1  border-gray-400  rounded-xl p-2">
                     <option value="default">Select a Category</option>
                     <option value="men's clothing">Men's Clothing</option>
                     <option value="jewelery">Jewelery</option>
